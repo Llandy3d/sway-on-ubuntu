@@ -7,6 +7,8 @@ Installation guide for the latest [sway](https://swaywm.org) version on Ubuntu 2
 This guide aims to be an easy to follow and straightforward way to install the master version of Sway and the wlroots dependency.
 
 It will then extend to useful projects you might want installed for a complete desktop experience.
+[![Example Sway Setup](img/example-working-on-docs.png)](img/example-working-on-docs.png)
+*Example of Customized Sway setup ([dotfiles](https://github.com/Llandy3d/dotfiles))*
 
 ## Why on Ubuntu ?
 
