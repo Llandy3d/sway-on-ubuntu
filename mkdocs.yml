@@ -1,0 +1,5 @@
+site_name: Sway on Ubuntu
+repo_url: https://github.com/Llandy3d/sway-on-ubuntu
+
+nav:
+    - Home: index.md
