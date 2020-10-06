@@ -109,6 +109,52 @@ sudo ninja -C build install
 
 And that's it, with this you have successfully installed wlroots.
 
+## Build Sway
+
+Here we will be building and installing Sway.
+
+### Dependencies
+
+The list of what we need now is smaller:
+```
+sudo apt install libjson-c-dev \
+libpango1.0-dev \
+libcairo2-dev \
+libgdk-pixbuf2.0-dev \
+scdoc
+```
+
+### Build & Install
+
+Now we will be cloning, building and installing sway.
+
+**Clone the repo**
+
+We will be using the path created in the wlroots steps:
+```
+# ~/sway-build
+git clone https://github.com/swaywm/sway.git
+cd sway
+```
+
+**Build sway**
+```sh
+# ~/sway-build/sway
+meson build
+ninja -C build
+```
+
+**Install sway**
+```sh
+# ~/sway-build/sway
+sudo ninja -C build install
+```
+
+That's it you just installed Sway! 🎉
+
+## Sanity Checks & Post Install
+wip
+
 ## Alacritty (Optional)
 
 The default terminal in the Sway config is [Alacritty](https://github.com/alacritty/alacritty).
