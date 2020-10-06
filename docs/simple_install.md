@@ -24,6 +24,8 @@ sudo apt update
 sudo apt install alacritty
 ```
 
+---
+
 ### Change default terminal
 
 You don't have to use it and you can change the default by changing this line in the Sway config: 
@@ -37,6 +39,8 @@ for example to use gnome-terminal:
 # Your preferred terminal emulator
 set $term gnome-terminal
 ```
+
+---
 
 ### Why I use it
 
