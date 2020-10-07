@@ -153,7 +153,79 @@ sudo ninja -C build install
 That's it you just installed Sway! 🎉
 
 ## Sanity Checks & Post Install
-wip
+
+### Desktop File
+
+You should have this file `/usr/local/share/wayland-sessions/sway.desktop` with these contents:
+```
+[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=sway
+Type=Application
+```
+
+This file is what allows the login manager to select the environment Sway to start at login.
+
+A neat trick is that you can **Exec** a custom script that sets some environment variables or does something else before starting sway, but we will see other ways to set these variables in further parts of the guide.
+
+### Config File
+
+You can copy the default sway config from `/usr/local/etc/sway/config` to `~/.config/sway/config`:
+```
+mkdir ~/.config/sway
+cp /usr/local/etc/sway/config ~/.config/sway
+```
+
+This is the file you will be modifying to customize the sway behaviour and keybinds.
+
+**note:** if you have an i3 config, you can copy that in the same path as above instead of the default one and it should work.
+
+### Final dependencies
+
+**Whaaat ?? More dependencies ???**
+
+Bear with me, the default config expects some programs for some of its configuration, they can be changed but to make it work let's just install them and later we will see replacements.
+
+The missing deps are:
+
+* **dmenu**: default menu when using `<mod>+d`
+* **swaybg**: allows sway to handle background images
+* **swayidle**: allows sway to handle idle functionality
+* **swaylock**: locks the screen
+* **alacritty**: default terminal emulator in sway
+
+You can install them with:
+```
+sudo apt install dmenu
+sudo apt install swaybg
+sudo apt install swayidle
+sudo apt install swaylock
+```
+
+For alacritty, please see the [alacritty optional section below](#alacritty-optional) before trying sway.
+
+---
+
+**Idle behaviour**
+
+You might want to uncomment this exec from the default config to have the idle behaviour you expect of screen locking and screen turn off:
+```
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+```
+
+In a later section of the guide we will see how to have a custom behaviour to blur the screen on lock, a totally useless thing but definitely neat.
 
 ## Alacritty (Optional)
 
