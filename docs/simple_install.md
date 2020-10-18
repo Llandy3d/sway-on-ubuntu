@@ -227,6 +227,31 @@ You might want to uncomment this exec from the default config to have the idle b
 
 In a later section of the guide we will see how to have a custom behaviour to blur the screen on lock, a totally useless thing but definitely neat.
 
+## Start Sway
+
+Now we can finally start sway!
+
+Logout and in the bottom right widget on login select Sway and proceed to login: 
+![Desktop Selector Sway](img/desktop-selector-sway.png)
+
+You will be greeted by a pretty empty but clean virtual desktop:
+![Sway welcome page](img/sway-welcome.png)
+
+To exit Sway you can press the keys `<mod>+shift+e` that will bring up a popup where you will have to click with the mouse to confirm:
+![Sway exit](img/sway-exit.png)
+
+Now you can experiment with Sway to see if it fits your workflow, with the default config you can use these commands to open a new terminal and close windows:
+
+* `<mod>+enter` - Open a new terminal
+* `<mod>+shift+q` - Close window
+* `<mod>+d` - Open dmenu
+
+![Sway opening and closing terminals](img/sway-open-close-terminals.gif)
+
+Great! This concludes the simple install of Sway, if you are interested in some tools and configurations that I find useful for my day to day work, check the Extra section! 
+
+I hope you will enjoy this new workflow as much as I do, and if you do not, you learned something new today!
+
 ## Alacritty (Optional)
 
 The default terminal in the Sway config is [Alacritty](https://github.com/alacritty/alacritty).
