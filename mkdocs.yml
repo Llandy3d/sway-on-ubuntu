@@ -4,4 +4,4 @@ repo_url: https://github.com/Llandy3d/sway-on-ubuntu
 nav:
     - Home: index.md
     - Simple Install: simple_install.md
-    - Extra: extra/intro.md
+    - Extra: extra.md

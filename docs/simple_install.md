@@ -248,7 +248,7 @@ Now you can experiment with Sway to see if it fits your workflow, with the defau
 
 ![Sway opening and closing terminals](img/sway-open-close-terminals.gif)
 
-Great! This concludes the simple install of Sway, if you are interested in some tools and configurations that I find useful for my day to day work, check the [Extra](extra/intro.md) section!
+Great! This concludes the simple install of Sway, if you are interested in some tools and configurations that I find useful for my day to day work, check the [Extra](extra.md) section!
 
 I hope you will enjoy this new workflow as much as I do, and if you do not, you learned something new today!
 
