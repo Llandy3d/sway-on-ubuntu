@@ -101,6 +101,8 @@ If you require more control, for example you need to be able to screenshot only 
 
 You probably noticed the `--notify` flag that I have set, it will send a notification but if you followed along you probably aren't seeing any. In the next section we will look into installing a notification manager!
 
+---
+
 ## Notification Manager (mako)
 
 If you try to send a notification via command line you will see that nothing appears:
@@ -171,3 +173,43 @@ On ubuntu 20.04 there might a problem with apparmor and mako so if you see a str
 sudo apt install apparmor-utils
 sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
 ```
+
+---
+
+## Blurred Lock Screen
+
+Instead of having a black lock screen I used a script with grim and ffmpeg to take a screenshot and blur it. This might be something totally not functional that you might enjoy.
+
+Install ffmpeg with:
+```
+sudo apt install ffmpeg
+```
+
+Then create a script with these contents, I named the script `create_lock_image`:
+```
+#! /bin/sh
+
+# Take a screenshot of the desktop and apply a gaussian blur to create
+# an image to use for the lock screen.
+
+grim /tmp/_sway_lock_image.png
+ffmpeg -i /tmp/_sway_lock_image.png -filter_complex "gblur=sigma=50" /tmp/sway_lock_image.png -y
+```
+
+Then you can configure your lock screen to run the script and set the resulting image as background:
+```
+# ~/.config/sway/config
+
+exec swayidle -w \
+         timeout 300 '~/.local/bin/create_lock_image && swaylock -f -i /tmp/sway_lock_image.png' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+```
+
+The result will be something like this depending on your screen
+![working on docs blurred](img/working-on-docs-blurred.png)
+
+and while unlocking:
+
+![working on docs blurred](img/working-on-docs-blurred-unlocking.png)
