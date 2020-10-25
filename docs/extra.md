@@ -100,3 +100,74 @@ If you require more control, for example you need to be able to screenshot only 
 ---
 
 You probably noticed the `--notify` flag that I have set, it will send a notification but if you followed along you probably aren't seeing any. In the next section we will look into installing a notification manager!
+
+## Notification Manager (mako)
+
+If you try to send a notification via command line you will see that nothing appears:
+```
+notify-send hello
+```
+
+---
+
+**Install**
+
+To manage notifications you can install [mako](https://github.com/emersion/mako) via apt:
+```
+sudo apt install mako-notifier
+```
+
+
+Mako can be started by executing the program `mako`, now if you try to send a notification again you will see it appear by default in the top right of the screen: `notify-send hello`
+![notification showing hello](img/notify-hello.png)
+
+You probably noticed that the notification won't disappear because we didn't specify a timeout but don't worry for now.
+
+---
+
+**Config**
+
+Instead of starting mako manually it would be nice if sway executed it at startup and it would also be nice to have some commands to dismiss the notifications.
+
+Add these lines to your sway config:
+```
+# Mako
+bindsym $mod+n exec makoctl dismiss
+bindsym $mod+Shift+n exec makoctl dismiss -a
+
+# Start programs
+exec mako
+```
+
+With these lines you will have mako running by sway on startup and the following bindings:
+
+* `<mod>+n` - dismiss the last notification
+* `<mod>+<shift>+n` - dismiss all notifications
+
+---
+
+You can also configure mako, a simple config to use could be:
+```
+# ~/.config/mako/config
+
+default-timeout=5000
+
+[urgency=high]
+ignore-timeout=1
+```
+
+It is self explanatory, every notification has a default life of 5 seconds except notifications marked with urgency high, those will ignore the configured timeout.
+You can lookup more settings and customize it further!
+
+If you try to take a screenshot now, you will see the notification for it appear!
+![area screenshot notification](img/notify-screenshot.png)
+
+---
+
+**Troubleshooting**
+
+On ubuntu 20.04 there might a problem with apparmor and mako so if you see a strange error on opening the configuration file for mako you can disable apparmor for it with:
+```
+sudo apt install apparmor-utils
+sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
+```
