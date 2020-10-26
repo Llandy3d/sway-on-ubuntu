@@ -297,3 +297,16 @@ for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 ![floating small firefox mic indicator](img/firefox-indicator-floating.png)
 
 The `sticky enable` part means that it will follow you even if you switch workspace.
+
+---
+
+## Hide Cursor
+
+The cursor can be hidden after a period of inactivity with this setting:
+```
+# ~/.config/sway/config
+
+# Hide cursor
+seat seat0 hide_cursor 5000
+```
+![hide cursor demonstration](img/hide-cursor.gif)
