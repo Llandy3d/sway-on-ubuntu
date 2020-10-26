@@ -310,3 +310,18 @@ The cursor can be hidden after a period of inactivity with this setting:
 seat seat0 hide_cursor 5000
 ```
 ![hide cursor demonstration](img/hide-cursor.gif)
+
+---
+
+## Spawn new terminal in current path
+
+An useful setting that I found is that when having `<mod>+enter` as spawn new terminal, a great addition is having `<mod>+<shift>+enter` spawn a new terminal in the current path.
+
+With alacritty you can achieve this by setting a new keybind, in my case `<mod>` is `<super>` so I set it as:
+```
+# ~/.config/alacritty/alacritty.yml
+
+key_bindings:
+  - { key: Return,   mods: Super|Shift, action: SpawnNewInstance }
+```
+![new terminal in same path](img/new-termina-same-path.gif)
