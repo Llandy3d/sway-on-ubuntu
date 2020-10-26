@@ -262,3 +262,38 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 ```
+
+---
+
+## Firefox wayland native + big mic popup fix
+
+Firefox requires environment variables to be set to know to be run in wayland native mode, the way I went about letting sway know about these variables is with the `.pam_environment` file but there are probably other ways to do this, as example starting sway with a custom script that already sets the desired environment variables.
+
+Create a `.pam_environment` file in your home:
+```
+# ~/.pam_environment
+
+# Firefox use wayland
+MOZ_ENABLE_WAYLAND DEFAULT=1
+# make firefox aware of wayland instance when launched from x11
+MOZ_DBUS_REMOTE DEFAULT=1
+```
+
+Now after you restart, firefox will be running in wayland native mode even if launched from x11 windows.
+
+---
+
+When running in wayland native mode, an annoying bug is that when you are on a page with the mic permission enabled, the indicator will be an entire new window in its full size.
+![full window size firefox mic indicator](img/firefox-mic-indicator.png)
+
+As a workaround until the bug is fixed in firefox, add this config in your sway config to make the window floating and small:
+```
+# ~/.config/sway/config
+
+# this makes the popup window for mic access small and stickied instead of an
+# extra window, this will work until it's fixed in firefox
+for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
+```
+![floating small firefox mic indicator](img/firefox-indicator-floating.png)
+
+The `sticky enable` part means that it will follow you even if you switch workspace.
