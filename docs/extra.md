@@ -213,3 +213,27 @@ The result will be something like this depending on your screen
 and while unlocking:
 
 ![working on docs blurred](img/working-on-docs-blurred-unlocking.png)
+
+---
+
+## Fzf as application launcher
+
+[Fzf](https://github.com/junegunn/fzf) is a wonderful tool, it's a fuzzy finder and can be used as an application launcher.
+
+Install fzf with:
+```
+sudo apt install fzf
+```
+
+Add the following lines to your sway config:
+```
+# Application launcher with fzf
+set $menu exec $term --class=launcher -e bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'
+
+# Windows config
+for_window [app_id="^launcher$"] floating enable, border none, opacity 0.8
+```
+
+This will use a terminal with fzf for launching programs in floating mode without border and a little transparent, you can invoke it with the same command as before `<mod>+d`
+
+![fzf as application launcher](img/fzf-application-launcher.gif)
