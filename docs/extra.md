@@ -357,3 +357,31 @@ bar {
 ---
 
 To configure it or style it you can look in the [waybar wiki](https://github.com/Alexays/Waybar/wiki) or for mine in my [dotfiles](https://github.com/Llandy3d/dotfiles/tree/master/.config/waybar).
+
+---
+
+## Honorable mentions
+
+Here are other tools that are worth mentioning even if some I haven't tried yet but are in my radar.
+
+---
+
+**[wf-recorder](https://github.com/ammen99/wf-recorder)**
+
+Record screen and audio, I used it for the examples of this guide.
+
+```
+sudo apt install wf-recorder
+```
+
+---
+
+**[swappy](https://github.com/jtheoof/swappy)**
+
+Draw/Edit screenshots.
+
+---
+
+**[wdisplays](https://github.com/cyclopsian/wdisplays)**
+
+Graphical application to configure displays.
