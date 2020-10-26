@@ -325,3 +325,35 @@ key_bindings:
   - { key: Return,   mods: Super|Shift, action: SpawnNewInstance }
 ```
 ![new terminal in same path](img/new-termina-same-path.gif)
+
+---
+
+## Waybar
+
+The bar you have been seeing in my examples is [Waybar](https://github.com/Alexays/Waybar).
+![styled waybar](img/waybar.png)
+
+To install it:
+```
+sudo add-apt-repository ppa:nschloe/waybar
+sudo apt update
+sudo apt install waybar
+
+# for the icons
+sudo apt install fonts-font-awesome
+```
+
+and add to your config:
+```
+# ~/.config/sway/config
+
+bar {
+    position top
+
+    swaybar_command waybar
+}
+```
+
+---
+
+To configure it or style it you can look in the [waybar wiki](https://github.com/Alexays/Waybar/wiki) or for mine in my [dotfiles](https://github.com/Llandy3d/dotfiles/tree/master/.config/waybar).
