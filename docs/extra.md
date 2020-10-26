@@ -237,3 +237,28 @@ for_window [app_id="^launcher$"] floating enable, border none, opacity 0.8
 This will use a terminal with fzf for launching programs in floating mode without border and a little transparent, you can invoke it with the same command as before `<mod>+d`
 
 ![fzf as application launcher](img/fzf-application-launcher.gif)
+
+---
+
+## Brightness/Volume/Media controls
+
+To use the brightness/volume/media special keys on your keyboard you can install these two tools and add this to your sway configuration:
+```
+sudo apt install brightnessctl
+sudo apt install pavucontrol
+```
+
+```
+# ~/.config/sway/config
+
+# volume / brightness / media controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+```
