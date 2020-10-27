@@ -2,7 +2,7 @@
 
 Install wlroots and sway from source.
 
-## Intro
+## Introduction
 
 In this section we are going to build [wlroots](https://github.com/swaywm/wlroots) (required to build sway) and [sway](https://github.com/swaywm/sway) from the source repository. We will be bulding the master version of both, but if you prefer you can checkout a stable release ex. 1.5
 
