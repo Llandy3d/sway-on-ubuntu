@@ -362,7 +362,7 @@ To configure it or style it you can look in the [waybar wiki](https://github.com
 
 ## Honorable mentions
 
-Here are other tools that are worth mentioning even if some I haven't tried yet but are in my radar.
+Here are other tools that are worth mentioning even if some I haven't tried yet but are under my radar.
 
 ---
 
