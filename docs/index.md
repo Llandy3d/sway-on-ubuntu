@@ -38,3 +38,9 @@ It's a guide on how to install and configure it to have a working desktop enviro
 If you are interested in learning on how to use Sway before installing it, I can advise this [3 part course on youtube](https://www.youtube.com/watch?v=j1I63wGcvU4), it's about i3 but i3 & sway are mostly interchangeable with some differences and those videos will get you up to speed. 
 
 **note**: one error is that it mentions that there is no fullscreen in i3/sway while there is a keybinding to go fullscreen. `(<mod> + f)`
+
+## Nvidia cards
+
+As stated in the [wiki](https://github.com/swaywm/sway/wiki) sway does not support proprietary drivers, so it should be fine with intel integrated graphics cards and amd gpus.
+
+If you have an nvidia card you could try to start sway with the flag `--my-next-gpu-wont-be-nvidia` or use the [nouveau](https://nouveau.freedesktop.org/) drivers but the results I have not tested.
