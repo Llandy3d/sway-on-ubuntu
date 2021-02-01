@@ -360,6 +360,17 @@ To configure it or style it you can look in the [waybar wiki](https://github.com
 
 ---
 
+## GTK+ applications have long startup
+
+If gtk+ applications are taking a long time to startup (20~ sec), add this at the start of your sway config file:
+```
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+```
+
+---
+
 ## Honorable mentions
 
 Here are other tools that are worth mentioning even if some I haven't tried yet but are under my radar.
