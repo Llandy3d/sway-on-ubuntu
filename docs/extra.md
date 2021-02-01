@@ -81,8 +81,8 @@ Here I have **grimshot** as an executable under `~/.local/bin/grimshot`
 set $grimshot ~/.local/bin/grimshot
 
 bindsym Print exec $grimshot --notify save screen
-bindsym Shift+Print exec $grimshot --notify copy screen
-bindsym Ctrl+Print exec $grimshot --notify save area
+bindsym Ctrl+Print exec $grimshot --notify copy screen
+bindsym Shift+Print exec $grimshot --notify save area
 bindsym Ctrl+Shift+Print exec $grimshot --notify copy area
 ```
 
