@@ -2,6 +2,8 @@
 
 Installation guide for the latest [sway](https://swaywm.org) version on Ubuntu 20.04
 
+Source can be found on [github](https://github.com/Llandy3d/sway-on-ubuntu)
+
 ## Introduction
 
 This guide aims to be an easy to follow and straightforward way to install the master version of Sway and the wlroots dependency.

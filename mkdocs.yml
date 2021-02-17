@@ -5,3 +5,4 @@ nav:
     - Home: index.md
     - Simple Install: simple_install.md
     - Extra: extra.md
+    - Help: help.md
