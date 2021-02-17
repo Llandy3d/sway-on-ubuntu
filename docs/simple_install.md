@@ -37,10 +37,10 @@ We now need this to be available under PATH:
 export PATH=$HOME/.local/bin:$PATH
 ```
 
-You can either:
-
-* use the command in the shell you will be inputting the commands
-* add the line at the end of your `.bashrc`
+Add the line at the end of your `.bashrc` in your home and source it:
+```
+source ~/.bashrc
+```
 
 ---
 
