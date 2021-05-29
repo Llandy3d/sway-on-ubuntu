@@ -390,9 +390,3 @@ sudo apt install wf-recorder
 **[swappy](https://github.com/jtheoof/swappy)**
 
 Draw/Edit screenshots.
-
----
-
-**[wdisplays](https://github.com/cyclopsian/wdisplays)**
-
-Graphical application to configure displays.
