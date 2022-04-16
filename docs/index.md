@@ -1,6 +1,6 @@
 # Sway on Ubuntu
 
-There is now a repo available for sway v1.7 on Ubuntu 22.04 development. [Ubuntu Sway](https://launchpad.net/~ubuntu-sway/+archive/ubuntu/stable)
+There is now a repo available for sway v1.7 on Ubuntu 22.04 development. ['Ubuntu Sway' team](https://launchpad.net/~ubuntu-sway/+archive/ubuntu/stable)
 The instruction on setting up via the ppa can be found [here](img/ppa_sway-on-ubuntu.md) but read the guide below before diving in.
 
 Installation guide for the latest [sway](https://swaywm.org) version on Ubuntu 20.04
