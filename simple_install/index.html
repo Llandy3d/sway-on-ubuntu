@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Simple Install - Sway on Ubuntu</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Sway on Ubuntu</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Simple Install</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../extra/" class="nav-link">Extra</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../help/" class="nav-link">Help</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../extra/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/Llandy3d/sway-on-ubuntu/edit/master/docs/simple_install.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#simple-install" class="nav-link">Simple Install</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#build-wlroots" class="nav-link">Build wlroots</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#build-sway" class="nav-link">Build Sway</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sanity-checks-post-install" class="nav-link">Sanity Checks &amp; Post Install</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#start-sway" class="nav-link">Start Sway</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#alacritty-optional" class="nav-link">Alacritty (Optional)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="simple-install">Simple Install</h1>
+<p>Install wlroots and sway from source.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this section we are going to build <a href="https://github.com/swaywm/wlroots">wlroots</a> (required to build sway) and <a href="https://github.com/swaywm/sway">sway</a> from the source repository.</p>
+<p>We will be building the latest stable version that seems to be supported by the dependecies in ubuntu 20.04: Sway 1.5.1</p>
+<h2 id="build-wlroots">Build wlroots</h2>
+<p>Here we will be building and installing wlroots.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>Start by installing the essentials tools, we will be using pip to install an updated version of meson.</p>
+<pre><code>sudo apt install build-essential
+sudo apt install git
+sudo apt install python3-pip
+</code></pre>
+<hr />
+<p><strong>Meson</strong></p>
+<p>wlroots requires a more up to date version of <a href="https://mesonbuild.com/">meson</a> from what ubuntu provides, we will be using pip to install an updated one.</p>
+<pre><code class="language-sh">pip3 install --user meson==0.55.3
+</code></pre>
+<p>We now need this to be available under PATH:</p>
+<pre><code>export PATH=$HOME/.local/bin:$PATH
+</code></pre>
+<p>Add the line at the end of your <code>.bashrc</code> in your home and source it:</p>
+<pre><code>source ~/.bashrc
+</code></pre>
+<hr />
+<p>Next are direct dependencies of wlroots:</p>
+<pre><code>sudo apt install wayland-protocols \
+libwayland-dev \
+libegl1-mesa-dev \
+libgles2-mesa-dev \
+libdrm-dev \
+libgbm-dev \
+libinput-dev \
+libxkbcommon-dev \
+libgudev-1.0-dev \
+libpixman-1-dev \
+libsystemd-dev \
+cmake \
+libpng-dev \
+libavutil-dev \
+libavcodec-dev \
+libavformat-dev \
+ninja-build \
+meson
+</code></pre>
+<p>The next ones are optional dependencies for x11 support, not required if you want a full wayland installation.</p>
+<p>If you don't know exactly why you don't need them, I highly encourage you to install them:</p>
+<pre><code>sudo apt install libxcb-composite0-dev \
+        libxcb-icccm4-dev \
+        libxcb-image0-dev \
+        libxcb-render0-dev \
+        libxcb-xfixes0-dev \
+        libxkbcommon-dev \
+        libxcb-xinput-dev \
+        libx11-xcb-dev
+</code></pre>
+<h3 id="build-install">Build &amp; Install</h3>
+<p>Now we will be cloning, building and installing wlroots.</p>
+<p><strong>Clone the repo</strong></p>
+<p>You can choose the path you prefer for the following steps, I will be working in <code>~/sway-build</code>.</p>
+<pre><code>mkdir ~/sway-build
+cd ~/sway-build
+git clone https://github.com/swaywm/wlroots.git
+cd wlroots
+git checkout 0.12.0
+</code></pre>
+<p><strong>Build wlroots</strong></p>
+<pre><code class="language-sh"># ~/sway-build/wlroots
+meson build
+ninja -C build
+</code></pre>
+<p><strong>Install wlroots</strong></p>
+<pre><code class="language-sh"># ~/sway-build/wlroots
+sudo ninja -C build install
+</code></pre>
+<p>And that's it, with this you have successfully installed wlroots.</p>
+<h2 id="build-sway">Build Sway</h2>
+<p>Here we will be building and installing Sway.</p>
+<h3 id="dependencies_1">Dependencies</h3>
+<p>The list of what we need now is smaller:</p>
+<pre><code>sudo apt install libjson-c-dev \
+libpango1.0-dev \
+libcairo2-dev \
+libgdk-pixbuf2.0-dev \
+scdoc
+</code></pre>
+<h3 id="build-install_1">Build &amp; Install</h3>
+<p>Now we will be cloning, building and installing sway.</p>
+<p><strong>Clone the repo</strong></p>
+<p>We will be using the path created in the wlroots steps:</p>
+<pre><code># ~/sway-build
+git clone https://github.com/swaywm/sway.git
+cd sway
+git checkout 1.5.1
+</code></pre>
+<p><strong>Build sway</strong></p>
+<pre><code class="language-sh"># ~/sway-build/sway
+meson build
+ninja -C build
+</code></pre>
+<p><strong>Install sway</strong></p>
+<pre><code class="language-sh"># ~/sway-build/sway
+sudo ninja -C build install
+</code></pre>
+<p>That's it you just installed Sway! 🎉</p>
+<h2 id="sanity-checks-post-install">Sanity Checks &amp; Post Install</h2>
+<h3 id="desktop-file">Desktop File</h3>
+<p>You should have this file <code>/usr/local/share/wayland-sessions/sway.desktop</code> with these contents:</p>
+<pre><code>[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=sway
+Type=Application
+</code></pre>
+<p>This file is what allows the login manager to select the environment Sway to start at login.</p>
+<p>A neat trick is that you can <strong>Exec</strong> a custom script that sets some environment variables or does something else before starting sway, but we will see other ways to set these variables in further parts of the guide.</p>
+<h3 id="config-file">Config File</h3>
+<p>You can copy the default sway config from <code>/usr/local/etc/sway/config</code> to <code>~/.config/sway/config</code>:</p>
+<pre><code>mkdir ~/.config/sway
+cp /usr/local/etc/sway/config ~/.config/sway
+</code></pre>
+<p>This is the file you will be modifying to customize the sway behaviour and keybinds.</p>
+<p><strong>note:</strong> if you have an i3 config, you can copy that in the same path as above instead of the default one and it should work.</p>
+<h3 id="final-dependencies">Final dependencies</h3>
+<p><strong>Whaaat ?? More dependencies ???</strong></p>
+<p>Bear with me, the default config expects some programs for some of its configuration, they can be changed but to make it work let's just install them and later we will see replacements.</p>
+<p>The missing deps are:</p>
+<ul>
+<li><strong>dmenu</strong>: default menu when using <code>&lt;mod&gt;+d</code></li>
+<li><strong>swaybg</strong>: allows sway to handle background images</li>
+<li><strong>swayidle</strong>: allows sway to handle idle functionality</li>
+<li><strong>swaylock</strong>: locks the screen</li>
+<li><strong>alacritty</strong>: default terminal emulator in sway</li>
+</ul>
+<p>You can install them with:</p>
+<pre><code>sudo apt install dmenu
+sudo apt install swaybg
+sudo apt install swayidle
+sudo apt install swaylock
+</code></pre>
+<p>For alacritty, please see the <a href="#alacritty-optional">alacritty optional section below</a> before trying sway.</p>
+<hr />
+<p><strong>Idle behaviour</strong></p>
+<p>You might want to uncomment this exec from the default config to have the idle behaviour you expect of screen locking and screen turn off:</p>
+<pre><code>### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg &quot;output * dpms off&quot;' resume 'swaymsg &quot;output * dpms on&quot;' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+</code></pre>
+<p>In a later section of the guide we will see how to have a custom behaviour to blur the screen on lock, a totally useless thing but definitely neat.</p>
+<h2 id="start-sway">Start Sway</h2>
+<p>Now we can finally start sway!</p>
+<p>Logout and in the bottom right widget on login select Sway and proceed to login: 
+<img alt="Desktop Selector Sway" src="../img/desktop-selector-sway.png" /></p>
+<p>You will be greeted by a pretty empty but clean virtual desktop:
+<img alt="Sway welcome page" src="../img/sway-welcome.png" /></p>
+<p>To exit Sway you can press the keys <code>&lt;mod&gt;+shift+e</code> that will bring up a popup where you will have to click with the mouse to confirm:
+<img alt="Sway exit" src="../img/sway-exit.png" /></p>
+<p>Now you can experiment with Sway to see if it fits your workflow, with the default config you can use these commands to open a new terminal and close windows:</p>
+<ul>
+<li><code>&lt;mod&gt;+enter</code> - Open a new terminal</li>
+<li><code>&lt;mod&gt;+shift+q</code> - Close window</li>
+<li><code>&lt;mod&gt;+d</code> - Open dmenu</li>
+</ul>
+<p><img alt="Sway opening and closing terminals" src="../img/sway-open-close-terminals.gif" /></p>
+<p>Great! This concludes the simple install of Sway, if you are interested in some tools and configurations that I find useful for my day to day work, check the <a href="../extra/">Extra</a> section!</p>
+<p>I hope you will enjoy this new workflow as much as I do, and if you do not, you learned something new today!</p>
+<h2 id="alacritty-optional">Alacritty (Optional)</h2>
+<p>The default terminal in the Sway config is <a href="https://github.com/alacritty/alacritty">Alacritty</a>.</p>
+<h3 id="install">Install</h3>
+<p>To get an up to date version on Ubuntu you can use the following ppa:</p>
+<pre><code>sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt update
+sudo apt install alacritty
+</code></pre>
+<hr />
+<h3 id="change-default-terminal">Change default terminal</h3>
+<p>You don't have to use it and you can change the default by changing this line in the Sway config: </p>
+<pre><code># Your preferred terminal emulator
+set $term alacritty
+</code></pre>
+<p>for example to use gnome-terminal:</p>
+<pre><code># Your preferred terminal emulator
+set $term gnome-terminal
+</code></pre>
+<hr />
+<h3 id="why-i-use-it">Why I use it</h3>
+<p>My personal reason for using alacritty is that I was looking for a minimal terminal to pair with Sway and it supports <a href="https://github.com/alacritty/alacritty/blob/master/docs/features.md#vi-mode">vi keybinds</a>.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

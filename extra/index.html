@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Extra - Sway on Ubuntu</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Sway on Ubuntu</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../simple_install/" class="nav-link">Simple Install</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Extra</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../help/" class="nav-link">Help</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../simple_install/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../help/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/Llandy3d/sway-on-ubuntu/edit/master/docs/extra.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#extra" class="nav-link">Extra</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ssh-agent" class="nav-link">ssh-agent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#screenshots" class="nav-link">Screenshots</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#notification-manager-mako" class="nav-link">Notification Manager (mako)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#blurred-lock-screen" class="nav-link">Blurred Lock Screen</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#fzf-as-application-launcher" class="nav-link">Fzf as application launcher</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#brightnessvolumemedia-controls" class="nav-link">Brightness/Volume/Media controls</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#firefox-wayland-native-big-mic-popup-fix" class="nav-link">Firefox wayland native + big mic popup fix</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#hide-cursor" class="nav-link">Hide Cursor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#spawn-new-terminal-in-current-path" class="nav-link">Spawn new terminal in current path</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#waybar" class="nav-link">Waybar</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#gtk-applications-have-long-startup" class="nav-link">GTK+ applications have long startup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#honorable-mentions" class="nav-link">Honorable mentions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="extra">Extra</h1>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>In this Extra section I will be showing some configurations or things to do that you might find useful.</p>
+<p>For example the first thing that I found missing that I required was having the ssh-agent running so we will start with that!</p>
+<hr />
+<h2 id="ssh-agent">ssh-agent</h2>
+<p>The problem was that ssh-agent is not running by default so you can add these lines to your <code>.bashrc</code> to start an instance and reuse it for the whole session:</p>
+<pre><code># start only one ssh-agent and reuse the created one
+# this is used for sway, althou keys added do not persist on reboot
+if ! pgrep -u &quot;$USER&quot; ssh-agent &gt; /dev/null; then
+    ssh-agent &gt; &quot;$XDG_RUNTIME_DIR/ssh-agent.env&quot;
+fi
+</code></pre>
+<p>This will ask for password on first use, so if you reboot you will have to insert it again. If you prefer that it remembers it you could explore solutions with gnome keyring or similiar.</p>
+<p>To complement this, I added these settings to the <code>~/.ssh/config</code> file so I have my key already added:</p>
+<pre><code># ~/.ssh/config
+
+AddKeysToAgent yes
+IdentityFile ~/.ssh/my_private_key
+</code></pre>
+<hr />
+<h2 id="screenshots">Screenshots</h2>
+<p>This is actually a feature that I could not live without as I find myself sharing often screenshots for work, so it was one of the first things that I setup to mimic my Ubuntu experience.</p>
+<p>The dependencies that you will need to install are:</p>
+<ul>
+<li><a href="https://github.com/bugaevc/wl-clipboard">wl-clipboard</a></li>
+<li><a href="https://github.com/emersion/grim">grim</a></li>
+<li><a href="https://github.com/emersion/slurp">slurp</a></li>
+<li><a href="https://stedolan.github.io/jq/">jq</a></li>
+</ul>
+<p><strong>grim</strong> allows you to grab images, <strong>slurp</strong> allows you to select a region of the screen.</p>
+<p><strong>wl-clipboard</strong> gives you utilities for working with the clipboard like <code>wl-copy</code> and <strong>jq</strong> is a json parser, these two are dependencies of a script that we will use for simpler screenshotting: <a href="https://github.com/swaywm/sway/blob/master/contrib/grimshot">grimshot</a></p>
+<p>Install all of these with apt and make sure to have the grimshot script executable:</p>
+<pre><code>sudo apt install wl-clipboard
+sudo apt install grim
+sudo apt install slurp
+sudo apt install jq
+</code></pre>
+<p>I have modified this line to have better naming of the saved screenshots:</p>
+<pre><code class="language-sh"># before:
+2020-09-15T02:06:18,876888351+02:00.png
+
+# after:
+2020-09-18-03:12:24.png
+</code></pre>
+<pre><code># line 31
+FILE=${3:-$(getTargetDirectory)/$(date +&quot;%Y-%m-%d-%H:%M:%S&quot;).png}
+</code></pre>
+<hr />
+<p>All that's left is adding these commands to the sway config <code>~/.config/sway/config</code>.</p>
+<p>Here I have <strong>grimshot</strong> as an executable under <code>~/.local/bin/grimshot</code></p>
+<pre><code># Screenshots
+# currently having a custom grimshot under .local/bin
+set $grimshot ~/.local/bin/grimshot
+
+bindsym Print exec $grimshot --notify save screen
+bindsym Ctrl+Print exec $grimshot --notify copy screen
+bindsym Shift+Print exec $grimshot --notify save area
+bindsym Ctrl+Shift+Print exec $grimshot --notify copy area
+</code></pre>
+<p>And you are set! With these settings you will have:</p>
+<ul>
+<li><code>Print</code> - saves the entire screen</li>
+<li><code>&lt;Shift&gt; + Print</code> - copy the entire screen</li>
+<li><code>&lt;Ctrl&gt; + Print</code> - select an area and save it</li>
+<li><code>&lt;Shift&gt;+&lt;Ctrl&gt; + Print</code> - select an area and copy it</li>
+</ul>
+<p>You will find the saved screenshot in your <code>~/Pictures</code> folder.</p>
+<p>If you require more control, for example you need to be able to screenshot only a specific window, feel free to add more commands!</p>
+<hr />
+<p>You probably noticed the <code>--notify</code> flag that I have set, it will send a notification but if you followed along you probably aren't seeing any. In the next section we will look into installing a notification manager!</p>
+<hr />
+<h2 id="notification-manager-mako">Notification Manager (mako)</h2>
+<p>If you try to send a notification via command line you will see that nothing appears:</p>
+<pre><code>notify-send hello
+</code></pre>
+<hr />
+<p><strong>Install</strong></p>
+<p>To manage notifications you can install <a href="https://github.com/emersion/mako">mako</a> via apt:</p>
+<pre><code>sudo apt install mako-notifier
+</code></pre>
+<p>Mako can be started by executing the program <code>mako</code>, now if you try to send a notification again you will see it appear by default in the top right of the screen: <code>notify-send hello</code>
+<img alt="notification showing hello" src="../img/notify-hello.png" /></p>
+<p>You probably noticed that the notification won't disappear because we didn't specify a timeout but don't worry for now.</p>
+<hr />
+<p><strong>Config</strong></p>
+<p>Instead of starting mako manually it would be nice if sway executed it at startup and it would also be nice to have some commands to dismiss the notifications.</p>
+<p>Add these lines to your sway config:</p>
+<pre><code># Mako
+bindsym $mod+n exec makoctl dismiss
+bindsym $mod+Shift+n exec makoctl dismiss -a
+
+# Start programs
+exec mako
+</code></pre>
+<p>With these lines you will have mako running by sway on startup and the following bindings:</p>
+<ul>
+<li><code>&lt;mod&gt;+n</code> - dismiss the last notification</li>
+<li><code>&lt;mod&gt;+&lt;shift&gt;+n</code> - dismiss all notifications</li>
+</ul>
+<hr />
+<p>You can also configure mako, a simple config to use could be:</p>
+<pre><code># ~/.config/mako/config
+
+default-timeout=5000
+
+[urgency=high]
+ignore-timeout=1
+</code></pre>
+<p>It is self explanatory, every notification has a default life of 5 seconds except notifications marked with urgency high, those will ignore the configured timeout.
+You can lookup more settings and customize it further!</p>
+<p>If you try to take a screenshot now, you will see the notification for it appear!
+<img alt="area screenshot notification" src="../img/notify-screenshot.png" /></p>
+<hr />
+<p><strong>Troubleshooting</strong></p>
+<p>On ubuntu 20.04 there might a problem with apparmor and mako so if you see a strange error on opening the configuration file for mako you can disable apparmor for it with:</p>
+<pre><code>sudo apt install apparmor-utils
+sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
+</code></pre>
+<hr />
+<h2 id="blurred-lock-screen">Blurred Lock Screen</h2>
+<p>Instead of having a black lock screen I used a script with grim and ffmpeg to take a screenshot and blur it. This might be something totally not functional that you might enjoy.</p>
+<p>Install ffmpeg with:</p>
+<pre><code>sudo apt install ffmpeg
+</code></pre>
+<p>Then create a script with these contents, I named the script <code>create_lock_image</code>:</p>
+<pre><code>#! /bin/sh
+
+# Take a screenshot of the desktop and apply a gaussian blur to create
+# an image to use for the lock screen.
+
+grim /tmp/_sway_lock_image.png
+ffmpeg -i /tmp/_sway_lock_image.png -filter_complex &quot;gblur=sigma=50&quot; /tmp/sway_lock_image.png -y
+</code></pre>
+<p>Then you can configure your lock screen to run the script and set the resulting image as background:</p>
+<pre><code># ~/.config/sway/config
+
+exec swayidle -w \
+         timeout 300 '~/.local/bin/create_lock_image &amp;&amp; swaylock -f -i /tmp/sway_lock_image.png' \
+         timeout 600 'swaymsg &quot;output * dpms off&quot;' \
+              resume 'swaymsg &quot;output * dpms on&quot;' \
+         before-sleep 'swaylock -f -c 000000'
+</code></pre>
+<p>The result will be something like this depending on your screen
+<img alt="working on docs blurred" src="../img/working-on-docs-blurred.png" /></p>
+<p>and while unlocking:</p>
+<p><img alt="working on docs blurred" src="../img/working-on-docs-blurred-unlocking.png" /></p>
+<hr />
+<h2 id="fzf-as-application-launcher">Fzf as application launcher</h2>
+<p><a href="https://github.com/junegunn/fzf">Fzf</a> is a wonderful tool, it's a fuzzy finder and can be used as an application launcher.</p>
+<p>Install fzf with:</p>
+<pre><code>sudo apt install fzf
+</code></pre>
+<p>Add the following lines to your sway config:</p>
+<pre><code># Application launcher with fzf
+set $menu exec $term --class=launcher -e bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'
+
+# Windows config
+for_window [app_id=&quot;^launcher$&quot;] floating enable, border none, opacity 0.8
+</code></pre>
+<p>This will use a terminal with fzf for launching programs in floating mode without border and a little transparent, you can invoke it with the same command as before <code>&lt;mod&gt;+d</code></p>
+<p><img alt="fzf as application launcher" src="../img/fzf-application-launcher.gif" /></p>
+<hr />
+<h2 id="brightnessvolumemedia-controls">Brightness/Volume/Media controls</h2>
+<p>To use the brightness/volume/media special keys on your keyboard you can install these two tools and add this to your sway configuration:</p>
+<pre><code>sudo apt install brightnessctl
+sudo apt install pavucontrol
+</code></pre>
+<pre><code># ~/.config/sway/config
+
+# volume / brightness / media controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+</code></pre>
+<hr />
+<h2 id="firefox-wayland-native-big-mic-popup-fix">Firefox wayland native + big mic popup fix</h2>
+<p>Firefox requires environment variables to be set to know to be run in wayland native mode, the way I went about letting sway know about these variables is with the <code>.pam_environment</code> file but there are probably other ways to do this, as example starting sway with a custom script that already sets the desired environment variables.</p>
+<p>Create a <code>.pam_environment</code> file in your home:</p>
+<pre><code># ~/.pam_environment
+
+# Firefox use wayland
+MOZ_ENABLE_WAYLAND DEFAULT=1
+# make firefox aware of wayland instance when launched from x11
+MOZ_DBUS_REMOTE DEFAULT=1
+</code></pre>
+<p>Now after you restart, firefox will be running in wayland native mode even if launched from x11 windows.</p>
+<hr />
+<p>When running in wayland native mode, an annoying bug is that when you are on a page with the mic permission enabled, the indicator will be an entire new window in its full size.
+<img alt="full window size firefox mic indicator" src="../img/firefox-mic-indicator.png" /></p>
+<p>As a workaround until the bug is fixed in firefox, add this config in your sway config to make the window floating and small:</p>
+<pre><code># ~/.config/sway/config
+
+# this makes the popup window for mic access small and stickied instead of an
+# extra window, this will work until it's fixed in firefox
+for_window [title=&quot;\ -\ Sharing\ Indicator$&quot;] floating enable, sticky enable
+</code></pre>
+<p><img alt="floating small firefox mic indicator" src="../img/firefox-indicator-floating.png" /></p>
+<p>The <code>sticky enable</code> part means that it will follow you even if you switch workspace.</p>
+<hr />
+<h2 id="hide-cursor">Hide Cursor</h2>
+<p>The cursor can be hidden after a period of inactivity with this setting:</p>
+<pre><code># ~/.config/sway/config
+
+# Hide cursor
+seat seat0 hide_cursor 5000
+</code></pre>
+<p><img alt="hide cursor demonstration" src="../img/hide-cursor.gif" /></p>
+<hr />
+<h2 id="spawn-new-terminal-in-current-path">Spawn new terminal in current path</h2>
+<p>An useful setting that I found is that when having <code>&lt;mod&gt;+enter</code> as spawn new terminal, a great addition is having <code>&lt;mod&gt;+&lt;shift&gt;+enter</code> spawn a new terminal in the current path.</p>
+<p>With alacritty you can achieve this by setting a new keybind, in my case <code>&lt;mod&gt;</code> is <code>&lt;super&gt;</code> so I set it as:</p>
+<pre><code># ~/.config/alacritty/alacritty.yml
+
+key_bindings:
+  - { key: Return,   mods: Super|Shift, action: SpawnNewInstance }
+</code></pre>
+<p><img alt="new terminal in same path" src="../img/new-termina-same-path.gif" /></p>
+<hr />
+<h2 id="waybar">Waybar</h2>
+<p>The bar you have been seeing in my examples is <a href="https://github.com/Alexays/Waybar">Waybar</a>.
+<img alt="styled waybar" src="../img/waybar.png" /></p>
+<p>To install it:</p>
+<pre><code>sudo add-apt-repository ppa:nschloe/waybar
+sudo apt update
+sudo apt install waybar
+
+# for the icons
+sudo apt install fonts-font-awesome
+</code></pre>
+<p>and add to your config:</p>
+<pre><code># ~/.config/sway/config
+
+bar {
+    position top
+
+    swaybar_command waybar
+}
+</code></pre>
+<hr />
+<p>To configure it or style it you can look in the <a href="https://github.com/Alexays/Waybar/wiki">waybar wiki</a> or for mine in my <a href="https://github.com/Llandy3d/dotfiles/tree/master/.config/waybar">dotfiles</a>.</p>
+<hr />
+<h2 id="gtk-applications-have-long-startup">GTK+ applications have long startup</h2>
+<p>If gtk+ applications are taking a long time to startup (20~ sec), add this at the start of your sway config file:</p>
+<pre><code>exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2&gt;/dev/null &amp;&amp; \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+</code></pre>
+<hr />
+<h2 id="honorable-mentions">Honorable mentions</h2>
+<p>Here are other tools that are worth mentioning even if some I haven't tried yet but are under my radar.</p>
+<hr />
+<p><strong><a href="https://github.com/ammen99/wf-recorder">wf-recorder</a></strong></p>
+<p>Record screen and audio, I used it for the examples of this guide.</p>
+<pre><code>sudo apt install wf-recorder
+</code></pre>
+<hr />
+<p><strong><a href="https://github.com/jtheoof/swappy">swappy</a></strong></p>
+<p>Draw/Edit screenshots.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
