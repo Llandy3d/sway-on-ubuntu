@@ -29,7 +29,7 @@ sudo apt install python3-pip
 wlroots requires a more up to date version of [meson](https://mesonbuild.com/) from what ubuntu provides, we will be using pip to install an updated one.
 
 ```sh
-pip3 install --user meson
+pip3 install --user meson==0.55.3
 ```
 
 We now need this to be available under PATH:
