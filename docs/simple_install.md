@@ -4,7 +4,7 @@ Install wlroots and sway from source.
 
 ## Introduction
 
-In this section we are going to build [wlroots](https://github.com/swaywm/wlroots) (required to build sway) and [sway](https://github.com/swaywm/sway) from the source repository.
+In this section we are going to build [wlroots](https://gitlab.freedesktop.org/wlroots/wlroots) (required to build sway) and [sway](https://github.com/swaywm/sway) from the source repository.
 
 We will be building the latest stable version that seems to be supported by the dependecies in ubuntu 20.04: Sway 1.5.1
 
@@ -90,7 +90,7 @@ You can choose the path you prefer for the following steps, I will be working in
 ```
 mkdir ~/sway-build
 cd ~/sway-build
-git clone https://github.com/swaywm/wlroots.git
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
 cd wlroots
 git checkout 0.12.0
 ```
