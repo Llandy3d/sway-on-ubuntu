@@ -98,7 +98,7 @@ git checkout 0.12.0
 **Build wlroots**
 ```sh
 # ~/sway-build/wlroots
-meson build
+meson build -Dxwayland=enable # enable support for all X apps
 ninja -C build
 ```
 
@@ -142,7 +142,7 @@ git checkout 1.5.1
 **Build sway**
 ```sh
 # ~/sway-build/sway
-meson build
+meson build -Dxwayland=enable # enable support for all X apps
 ninja -C build
 ```
 
